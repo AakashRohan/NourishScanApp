@@ -7,7 +7,6 @@ import androidx.activity.ComponentActivity
 import com.journeyapps.barcodescanner.CaptureActivity
 import com.journeyapps.barcodescanner.ScanOptions
 import com.journeyapps.barcodescanner.ScanContract
-import com.example.nourishscanapp.ui.ResultActivity
 
 class BarcodeScannerActivity : ComponentActivity() {
 
