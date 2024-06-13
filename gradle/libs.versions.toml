@@ -19,6 +19,7 @@ composeUiTooling = "1.4.8"
 composeUiTestManifest = "1.4.8"
 composeFoundation = "1.4.8"
 composeRuntime = "1.4.8"
+uiAndroid = "1.6.8"
 
 [libraries]
 androidxCore = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCore" }
@@ -41,3 +42,4 @@ composeUiTooling = { group = "androidx.compose.ui", name = "ui-tooling", version
 composeUiTestManifest = { group = "androidx.compose.ui", name = "ui-test-manifest", version.ref = "composeUiTestManifest" }
 composeFoundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "composeFoundation" }
 composeRuntime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "composeRuntime" }
+uiAndroid = { group = "androidx.compose.ui", name = "ui-android", version.ref = "uiAndroid" }

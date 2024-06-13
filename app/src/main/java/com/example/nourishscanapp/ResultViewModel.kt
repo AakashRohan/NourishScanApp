@@ -11,4 +11,8 @@ class ResultViewModel : ViewModel() {
     fun setBarcodeResult(result: String) {
         _barcodeResult.value = result
     }
+
+    fun setSampleData(data: String) {
+        _barcodeResult.value = data
+    }
 }

@@ -11,4 +11,8 @@ class MainViewModel : ViewModel() {
     fun updateState(newState: String) {
         _viewState.value = newState
     }
+
+    fun setSampleData(data: String) {
+        _viewState.value = data
+    }
 }

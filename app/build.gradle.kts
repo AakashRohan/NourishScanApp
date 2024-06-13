@@ -61,6 +61,7 @@ dependencies {
     implementation(libs.zxingAndroidEmbedded)
     implementation(libs.composeFoundation)
     implementation(libs.composeRuntime)
+    implementation(libs.uiAndroid)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidxJunit)
     androidTestImplementation(libs.espressoCore)

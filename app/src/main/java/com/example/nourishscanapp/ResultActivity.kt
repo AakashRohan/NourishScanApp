@@ -1,8 +1,12 @@
+package com.example.nourishscanapp
+
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -21,6 +25,8 @@ class ResultActivity : ComponentActivity() {
 
 @Composable
 fun ResultScreen(viewModel: ResultViewModel = viewModel()) {
+    val sampleData by remember { mutableStateOf("Hello, Result!") }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -28,8 +34,10 @@ fun ResultScreen(viewModel: ResultViewModel = viewModel()) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text(text = "Result Screen")
-        // Add your UI components here
+        Text(text = sampleData)
+        Button(onClick = { viewModel.setSampleData("Hello, ViewModel!") }) {
+            Text(text = "Update Text")
+        }
     }
 }
 
