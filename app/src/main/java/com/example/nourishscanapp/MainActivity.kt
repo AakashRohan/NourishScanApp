@@ -1,10 +1,8 @@
-package com.example.nourishscanapp
-
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.*
+import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -16,32 +14,30 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MainScreen()
+            MyApp()
         }
     }
 }
 
 @Composable
-fun MainScreen(viewModel: MainViewModel = viewModel()) {
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text("NourishScanApp") }
-            )
-        },
-        content = {
-            Box(
-                contentAlignment = Alignment.Center,
-                modifier = Modifier.fillMaxSize()
-            ) {
-                Text("Welcome to NourishScanApp!")
-            }
+fun MyApp(viewModel: MainViewModel = viewModel()) {
+    val sampleData by remember { mutableStateOf("Hello, Compose!") }
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text(text = sampleData)
+        Button(onClick = { viewModel.setSampleData("Hello, ViewModel!") }) {
+            Text(text = "Update Text")
         }
-    )
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    MainScreen()
+    MyApp()
 }
