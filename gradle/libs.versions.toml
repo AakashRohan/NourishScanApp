@@ -20,6 +20,9 @@ composeUiTestManifest = "1.6.8"
 composeFoundation = "1.6.8"
 composeRuntime = "1.6.8"
 composeCompiler = "1.5.14"  # This is defined but might not be used directly in dependencies
+retrofit = "2.9.0"
+okhttp = "4.9.3"
+gson = "2.8.8"
 
 [libraries]
 androidxCore = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCore" }
@@ -43,3 +46,8 @@ composeUiTestManifest = { group = "androidx.compose.ui", name = "ui-test-manifes
 composeFoundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "composeFoundation" }
 composeRuntime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "composeRuntime" }
 composeCompiler = { group = "androidx.compose.compiler", name = "compiler", version.ref = "composeCompiler" }
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofitConverterGson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+okhttpLoggingInterceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "gson" }

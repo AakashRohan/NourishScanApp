@@ -7,10 +7,10 @@
       </SelectionState>
       <SelectionState runConfigName="NourishScanApp">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2024-06-13T15:46:10.254321Z">
+        <DropdownSelection timestamp="2024-06-21T07:15:20.945804Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="LocalEmulator" identifier="path=/Users/aakash/.android/avd/Pixel_3a_API_34.avd" />
+              <DeviceId pluginId="PhysicalDevice" identifier="serial=bcdc20d0" />
             </handle>
           </Target>
         </DropdownSelection>

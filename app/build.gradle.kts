@@ -59,6 +59,10 @@ dependencies {
     implementation(libs.navigationCompose)
     implementation(libs.zxingCore)
     implementation(libs.zxingAndroidEmbedded)
+    implementation(libs.retrofit)
+    implementation(libs.retrofitConverterGson)
+    implementation(libs.okhttp)
+    implementation(libs.okhttpLoggingInterceptor)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidxJunit)
     androidTestImplementation(libs.espressoCore)
@@ -67,4 +71,5 @@ dependencies {
     debugImplementation(libs.composeUiTestManifest)
     implementation(libs.composeFoundation)
     implementation(libs.composeRuntime)
+    implementation(libs.gson)
 }
