@@ -23,6 +23,9 @@ composeCompiler = "1.5.14"  # This is defined but might not be used directly in 
 retrofit = "2.9.0"
 okhttp = "4.9.3"
 gson = "2.8.8"
+appcompat = "1.7.0"
+runtimeLivedata = "1.6.8"
+material3Android = "1.2.1"
 
 [libraries]
 androidxCore = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCore" }
@@ -51,3 +54,6 @@ retrofitConverterGson = { group = "com.squareup.retrofit2", name = "converter-gs
 okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
 okhttpLoggingInterceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
 gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "gson" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+runtimeLivedata = { group = "androidx.compose.runtime", name = "runtime-livedata", version.ref = "runtimeLivedata" }
+material3Android = { group = "androidx.compose.material3", name = "material3-android", version.ref = "material3Android" }

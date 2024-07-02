@@ -1,18 +1,28 @@
 package com.example.nourishscanapp
 
-import okhttp3.OkHttpClient
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import android.util.Log
 
-object ApiClient {
-    private const val BASE_URL = "https://api.edamam.com/" // Ensure this is the correct base URL
+class ApiClient(private val apiService: ApiService) {
 
-    private val okHttpClient = OkHttpClient.Builder()
-        .build()
+    fun getProductInfo(barcode: String, apiKey: String, callback: (ProductResponse?, Throwable?) -> Unit) {
+        apiService.getProductInfo(barcode, apiKey).enqueue(object : Callback<ProductResponse> {
+            override fun onResponse(call: Call<ProductResponse>, response: Response<ProductResponse>) {
+                if (response.isSuccessful) {
+                    callback(response.body(), null)
+                    Log.d("ApiClient", "API call successful: ${response.body()}")
+                } else {
+                    callback(null, Throwable("Error: ${response.code()} ${response.message()}"))
+                    Log.e("ApiClient", "API call failed: ${response.code()} ${response.message()}")
+                }
+            }
 
-    val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl(BASE_URL)
-        .client(okHttpClient)
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
+            override fun onFailure(call: Call<ProductResponse>, t: Throwable) {
+                callback(null, t)
+                Log.e("ApiClient", "API call failed: ${t.message}")
+            }
+        })
+    }
 }

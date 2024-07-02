@@ -2,55 +2,46 @@ package com.example.nourishscanapp
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.*
-import androidx.compose.material3.Button
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.getValue
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import android.util.Log
+import android.widget.Button
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            MyApp()
+        setContentView(R.layout.activity_main)
+
+        val productInfoText: TextView = findViewById(R.id.product_info_text)
+        val errorText: TextView = findViewById(R.id.error_text)
+        val updateButton: Button = findViewById(R.id.update_button)
+
+        // Simulate an API response here for demonstration purposes
+        val simulatedApiResponse = "{ \"productName\": \"Test Product\", \"error\": \"Simulated Error Message\" }"
+        Log.d("MainActivity", "Simulated API response: $simulatedApiResponse")
+
+        // Extracting data from the simulated API response
+        val productName = "Test Product" // Extract this from the simulated API response
+        val error: String? = "Simulated Error Message" // Extract this from the simulated API response
+
+        // This block simulates updating the TextViews based on the API response
+        updateButton.setOnClickListener {
+            if (error != null) {
+                errorText.text = getString(R.string.error, error)
+                Log.d("MainActivity", "Error occurred: $error")
+            } else {
+                productInfoText.text = getString(R.string.product_info, productName)
+                errorText.text = getString(R.string.error, "")
+                Log.d("MainActivity", "Product info updated: $productName")
+            }
+
+            // Start ResultActivity
+            val intent = Intent(this, ResultActivity::class.java).apply {
+                putExtra("productInfo", productName)
+                putExtra("errorMessage", error)
+            }
+            startActivity(intent)
         }
     }
-}
-
-@Composable
-fun MyApp(viewModel: MainViewModel = viewModel()) {
-    val sampleData by remember { mutableStateOf("Hello, Compose!") }
-    val context = LocalContext.current
-
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        Text(text = sampleData)
-        Button(onClick = {
-            val intent = Intent(context, BarcodeScannerActivity::class.java)
-            context.startActivity(intent)
-        }) {
-            Text(text = "Open Scanner")
-        }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    MyApp()
 }
