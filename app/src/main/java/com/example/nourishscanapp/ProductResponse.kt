@@ -1,21 +1,19 @@
 package com.example.nourishscanapp
 
 data class ProductResponse(
-    val product: Product
+    val products: List<Product>
 )
 
 data class Product(
-    val name: String,
-    val brand: String,
-    val image_url: String,
-    val ingredients: String,
-    val allergens: String,
-    val nutrition: Nutrition
+    val product_name: String,
+    val ingredients_text: String,
+    val nutriments: Nutriments
 )
 
-data class Nutrition(
-    val calories: String,
-    val fat: String,
-    val sugar: String,
-    val protein: String
+data class Nutriments(
+    val energy_kcal: Float,
+    val proteins: Float,
+    val fat: Float,
+    val carbohydrates: Float,
+    val fiber: Float
 )

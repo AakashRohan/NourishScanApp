@@ -7,7 +7,8 @@ import retrofit2.http.Query
 interface ApiService {
     @GET("products")
     fun getProductInfo(
-        @Query("upc") barcode: String,
-        @Query("key") apiKey: String = "" // Replace with your BarcodeLookup API Key
+        @Query("barcode") barcode: String,
+        @Query("formatted") formatted: String = "y",
+        @Query("key") apiKey: String = "jhs94q3no2wznxaxttoaqzfnatlie9" // Replace with your Barcode Lookup API key
     ): Call<ProductResponse>
 }
